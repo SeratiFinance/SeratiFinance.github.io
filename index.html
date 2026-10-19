@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kebabonye Nthobatsang</title>
+<meta name="description" content="Kebabonye Nthobatsang, PhD candidate in Finance at the University of Birmingham. Research on monetary policy transmission, international spillovers, banks and firm finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: two-column academic page. Identity and navigation sit in a sticky left column; research leads the right column. Stacks to one column on phones. */
+:root{
+  --paper:#f7f8fa; --surface:#ffffff; --ink:#1a1f2b; --ink-2:#4a5263; --ink-3:#6c7486;
+  --rule:#dde1e8; --accent:#22408a; --accent-soft:#e7ecf7;
+  --f-display:"Newsreader","Iowan Old Style","Georgia",serif;
+  --f-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12151c; --surface:#181c25; --ink:#e7e9ee; --ink-2:#b4bac7; --ink-3:#8b92a2;
+  --rule:#2a303c; --accent:#9db2ec; --accent-soft:#1f2840; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12151c; --surface:#181c25; --ink:#e7e9ee; --ink-2:#b4bac7; --ink-3:#8b92a2;
+  --rule:#2a303c; --accent:#9db2ec; --accent-soft:#1f2840; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;text-wrap:balance;margin:0;color:var(--ink)}
+
+.wrap{max-width:1080px;margin:0 auto;padding-block:56px 72px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:64px}
+
+/* Identity column */
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px);align-self:start;display:flex;flex-direction:column;gap:22px}
+.name{font-size:2.15rem;line-height:1.08;letter-spacing:-.01em}
+.role{color:var(--ink-2);font-size:.95rem;line-height:1.5}
+.role strong{font-weight:600;color:var(--ink)}
+.contact{display:flex;flex-direction:column;gap:4px;font-size:.9rem;color:var(--ink-2)}
+.contact a{word-break:break-all}
+.label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--rule)}
+nav a{display:block;padding:3px 0 3px 14px;color:var(--ink-2);text-decoration:none;font-size:.92rem}
+nav a:hover{color:var(--accent)}
+.peg{font-size:.8rem;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px;font-variant-numeric:tabular-nums}
+.peg b{font-family:var(--f-display);font-size:1.05rem;font-weight:500;color:var(--ink)}
+
+/* Content column */
+main{display:flex;flex-direction:column;gap:56px;min-width:0}
+section{display:flex;flex-direction:column;gap:20px;scroll-margin-top:32px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule);padding-bottom:10px}
+.sec-head h2{font-size:1.55rem}
+.lede{font-family:var(--f-display);font-size:1.32rem;line-height:1.5;color:var(--ink);max-width:62ch;margin:0}
+.prose{max-width:66ch;color:var(--ink-2);margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.tags li{font-size:.82rem;padding:4px 11px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
+
+/* Papers */
+.group-label{margin-top:4px}
+.paper{display:flex;flex-direction:column;gap:8px;padding-block:6px}
+.paper + .paper{border-top:1px solid var(--rule);padding-top:22px}
+.paper h3{font-size:1.28rem;line-height:1.3}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--ink-3)}
+.status{font-weight:600;color:var(--ink-2)}
+.feature{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:24px 26px}
+.feature .flag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.summary{margin:0;color:var(--ink-2);max-width:66ch}
+details{max-width:66ch}
+summary{cursor:pointer;color:var(--accent);font-size:.88rem;font-weight:500;width:max-content;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ ";font-variant-numeric:tabular-nums}
+details[open] summary::before{content:"− "}
+details p{margin:10px 0 0;color:var(--ink-2);font-size:.95rem}
+
+/* Lists */
+.rows{display:flex;flex-direction:column;gap:18px;margin:0;padding:0;list-style:none}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px}
+.row .what{font-weight:600;color:var(--ink)}
+.row .where{color:var(--ink-2);font-size:.95rem}
+.row .when{color:var(--ink-3);font-size:.88rem;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.row p{grid-column:1 / -1;margin:2px 0 0;color:var(--ink-2);font-size:.95rem;max-width:66ch}
+
+footer{border-top:1px solid var(--rule);padding-top:18px;font-size:.82rem;color:var(--ink-3)}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:36px 56px}
+  aside{position:static}
+  nav ul{flex-direction:row;flex-wrap:wrap;border-left:0;gap:6px 16px}
+  nav a{padding:0}
+  .name{font-size:1.9rem}
+  .lede{font-size:1.18rem}
+  .feature{padding:20px 18px}
+}
+@media (max-width:480px){
+  .row{grid-template-columns:minmax(0,1fr)}
+  .row .when{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <aside>
+    <h1 class="name">Kebabonye Nthobatsang</h1>
+    <div class="role"><strong>PhD Candidate in Finance</strong><br>Department of Finance<br>University of Birmingham</div>
+    <div class="contact">
+      <span class="label">Contact</span>
+      <a href="mailto:nkebabonye@gmail.com">nkebabonye@gmail.com</a>
+      <span>University House, 116 Edgbaston Park Road<br>Birmingham B15 2TY, UK</span>
+    </div>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#policy">Policy &amp; research experience</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+    <div class="peg"><b>€1 = 655.957</b> CFA francs<br>The fixed parity through which ECB policy reaches 14 African economies.</div>
+  </aside>
+
+  <main>
+    <section id="about" aria-label="About">
+      <p class="lede">I study how monetary policy set abroad reaches banks and firms at home. My dissertation examines how European Central Bank easing, including its negative-rate and unconventional phase, transmits through the CFA franc's hard euro peg to bank risk-taking, firms' access to credit, and corporate balance sheets in West and Central Africa.</p>
+      <p class="prose">My work sits at the intersection of international monetary economics, banking and corporate finance, using bank-level, firm-level and survey microdata. Alongside the PhD, I have advised on trade and climate finance policy in a pro bono capacity with GIZ.</p>
+      <ul class="tags" aria-label="Research fields">
+        <li>Monetary transmission</li><li>Unconventional monetary policy</li><li>International spillovers</li>
+        <li>Banking &amp; risk-taking</li><li>Corporate finance</li><li>African financial markets</li><li>Climate finance</li>
+      </ul>
+    </section>
+
+    <section id="research">
+      <div class="sec-head"><h2>Research</h2></div>
+
+      <span class="label group-label">Working papers</span>
+
+      <article class="paper feature">
+        <span class="flag">Lead paper</span>
+        <h3>External Monetary Passthrough under a Hard Peg: ECB Policy and Firm Finance in the CFA Zone</h3>
+        <div class="meta"><span class="status">Working paper</span><span>Draft available on request</span></div>
+        <p class="summary">How does ECB easing reach firms in an economy that has handed its monetary policy to Frankfurt? Firm-level survey evidence from the CFA franc zone shows that imported easing works mainly through firms' demand for credit and their perception of constraints rather than through wider formal access.</p>
+        <details>
+          <summary>Abstract</summary>
+          <p>Most evidence on global monetary spillovers comes from macro or bank-level data. I study the firm-level side of the transmission of ECB easing through the CFA franc zone's hard euro peg. Using harmonised World Bank Enterprise Survey microdata, a difference-in-differences design compares CFA firms with similar firms elsewhere in Sub-Saharan Africa before (2006–2011) and after (2014–2018) the ECB's easing cycle, complemented by CFA-only estimates on the ECB deposit facility rate. Imported easing is associated with a large rise in firms reporting no need for external credit, with unchanged application rates and a sharp fall in discouraged borrowers. Overdrafts expand faster than longer-horizon credit lines, and collateral requirements ease moderately. The results point to internal liquidity and latent credit rationing as the main channels in a shallow financial system, and to collateral registry, banking competition and supervisory reforms as conditions for turning better perceptions into lasting credit access.</p>
+        </details>
+      </article>
+
+      <article class="paper">
+        <h3>Imported Easing and Bank Risk-Taking: ECB Policy, Credit Losses and Provisioning in CFA Zone Banks</h3>
+        <div class="meta"><span class="status">Working paper</span><span>Draft available on request</span></div>
+        <p class="summary">Does accommodative ECB policy encourage risk-taking by banks in the CFA zone, and do provisions and capital keep pace with the credit risk it creates?</p>
+        <details>
+          <summary>Abstract</summary>
+          <p>The risk-taking channel predicts that low policy rates push banks toward riskier borrowers and thinner buffers. I test whether this channel operates across a hard peg using audited accounts for 142 CFA zone banks from 2005 to 2024, linked to the ECB deposit facility rate. Easing is not associated with higher reported non-performing loan ratios, but it is associated with higher realised credit losses and higher impaired loans relative to equity. Net interest margins remain resilient under easing, which tempers the profit-squeeze motive for risk-taking. The paper also examines whether loan-loss provisioning and capital ratios adjust to the accumulated risk, with implications for regional prudential supervision under the BCEAO and BEAC.</p>
+        </details>
+      </article>
+
+      <span class="label group-label">Work in progress</span>
+
+      <article class="paper">
+        <h3>Deploy or Hoard? ECB Easing and Firm Balance Sheets in the CFA Zone</h3>
+        <div class="meta"><span class="status">Work in progress</span></div>
+        <p class="summary">When ECB rates fall, do CFA zone firms invest the liquidity they receive or hold it as a buffer? Firm accounts for 2007–2024 point to investment: fixed-asset ratios rise, liquid assets fall, and debt ratios and maturities increase with a one-year lag. Leverage responses concentrate in easing years and among riskier firms, which borrow more without investing more.</p>
+      </article>
+    </section>
+
+    <section id="policy">
+      <div class="sec-head"><h2>Policy &amp; research experience</h2></div>
+      <ul class="rows">
+        <li class="row">
+          <span class="what">Consultant Economist (pro bono)</span><span class="when">2022–2024</span>
+          <span class="where">GIZ (Deutsche Gesellschaft für Internationale Zusammenarbeit)</span>
+          <p>Advised on trade and climate finance policy. On trade, reviewed regulatory bottlenecks in local markets and supported frameworks for trade in services. On climate finance, analysed the effectiveness of market-based carbon offset mechanisms and international green investment flows, contributing analysis ahead of the annual UNFCCC sessions in Bonn, and supported climate resilience in regional trade infrastructure, including energy-efficient cooling and climate-smart agriculture.</p>
+        </li>
+        <li class="row">
+          <span class="what">Researcher, Green Economy Group</span><span class="when">2021–2022</span>
+          <span class="where">Forum for Global Challenges, University of Birmingham</span>
+          <p>Co-led climate and sustainability research and policy debates with academic, business and political leaders, identifying policy goals aligned with COP26 and the UN Sustainable Development Goals.</p>
+        </li>
+        <li class="row">
+          <span class="what">Researcher</span><span class="when">2021</span>
+          <span class="where">Westmere Graduate School, University of Birmingham</span>
+          <p>Development finance study on the links between poverty and climate sustainability.</p>
+        </li>
+        <li class="row">
+          <span class="what">Research Assistant</span><span class="when">2017–2018</span>
+          <span class="where">Department of Sociology and Cathie Marsh Institute (CMIST), University of Manchester</span>
+          <p>Quantitative analysis of socio-economic disparities among students, and of Demographic and Health Survey data for Bangladesh and India.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <div class="sec-head"><h2>Teaching</h2></div>
+      <ul class="rows">
+        <li class="row">
+          <span class="what">Financial Asset Pricing</span><span class="when">MSc</span>
+          <span class="where">Department of Finance, University of Birmingham</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <div class="sec-head"><h2>Awards &amp; grants</h2></div>
+      <ul class="rows">
+        <li class="row"><span class="what">Top Achievers Scholarship, PhD in Finance (full funding)</span><span class="when">2019–2024</span></li>
+        <li class="row"><span class="what">Westmere Scholarship, University of Birmingham</span><span class="when">2021</span></li>
+        <li class="row"><span class="what">University Graduate School Grant, University of Birmingham</span><span class="when">2021</span></li>
+        <li class="row"><span class="what">College of Social Sciences Grant, University of Birmingham</span><span class="when">2020</span></li>
+        <li class="row"><span class="what">Top Achievers Scholarship, MSc in Finance (full funding)</span><span class="when">2018–2019</span></li>
+        <li class="row"><span class="what">Top Achievers Scholarship, BA Economic and Social Studies (full funding)</span><span class="when">2014–2018</span></li>
+        <li class="row"><span class="what">Government of Botswana Study Grant, Capital Markets Study, City of London</span><span class="when">2016</span></li>
+        <li class="row"><span class="what">Government of Botswana Study Grant, Oxford International Forum (Merit Delegate)</span><span class="when">2014</span></li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <div class="sec-head"><h2>Education</h2></div>
+      <ul class="rows">
+        <li class="row"><span class="what">PhD in Finance</span><span class="when">2019–2027 (expected)</span><span class="where">University of Birmingham</span></li>
+        <li class="row"><span class="what">MSc in Finance, Merit</span><span class="when">2018–2019</span><span class="where">Queen Mary University of London</span></li>
+        <li class="row"><span class="what">BA Economic and Social Studies (Finance)</span><span class="when">2014–2018</span><span class="where">University of Manchester</span></li>
+      </ul>
+    </section>
+
+    <footer>CV and paper drafts available on request.</footer>
+  </main>
+</div>
+</body>
+</html>
